@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DORSIS GIRMA Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General styles for the section */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffffff;
+      font-size: 2.5rem;
+      margin-top: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Styling for the skills container */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    /* Style for each skill tag */
+    .skill-tag {
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transform: scale(1);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Colorful backgrounds for each skill */
+    .skill-tag.html { background: linear-gradient(135deg, #e44d26, #f16529); }
+    .skill-tag.css { background: linear-gradient(135deg, #264de4, #2965f1); }
+    .skill-tag.js { background: linear-gradient(135deg, #f7df1e, #ff9800); }
+    .skill-tag.react { background: linear-gradient(135deg, #61dafb, #21a1f1); }
+    .skill-tag.jsx { background: linear-gradient(135deg, #61dafb, #ff5722); }
+    .skill-tag.php { background: linear-gradient(135deg, #8993be, #9c8dff); }
+    .skill-tag.mysql { background: linear-gradient(135deg, #00758f, #002f3d); }
+    .skill-tag.python { background: linear-gradient(135deg, #306998, #ffcc00); }
+    .skill-tag.git { background: linear-gradient(135deg, #f34f29, #f05032); }
+    .skill-tag.bootstrap { background: linear-gradient(135deg, #563d7c, #9c27b0); }
+    .skill-tag.esp32 { background: linear-gradient(135deg, #3e8e41, #4caf50); }
+    .skill-tag.arduion { background: linear-gradient(135deg, #586d88, #4caf50); }
+
+    /* Icon styles */
+    .skill-tag i {
+      margin-right: 0.5rem;
+    }
+
+    /* Hover effect */
+    .skill-tag:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    /* Add a nice little glow effect */
+    .skill-tag:focus, .skill-tag:hover {
+      outline: none;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Styling for the card */
+    .card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+      margin: 0 2rem;
+      max-width: 1200px;
+      margin-top: 2rem;
+    }
+
+    /* Responsive handling for smaller screens */
+    @media (max-width: 768px) {
+      .skills-container {
+        justify-content: flex-start;
+      }
+
+      .skill-tag {
+        font-size: 0.9rem;
+      }
+
+      .card {
+        margin: 0 1rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    :root {
+      --light-bg: #f4f4f4;
+      --light-text: #111111;
+      --dark-bg: #0f0f0f;
+      --dark-text: #ffffff;
+      --accent: #00ffee;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: var(--dark-bg);
+      --text-color: var(--dark-text);
+    }
+
+    [data-theme="light"] {
+      --bg-color: var(--light-bg);
+      --text-color: var(--light-text);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(270deg, #0f0f0f, #1e1e1e, #0f0f0f);
+      background-size: 600% 600%;
+      animation: backgroundShift 20s ease infinite;
+      color: var(--text-color);
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    @keyframes backgroundShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      text-align: center;
+      padding: 1rem 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    header span#typed {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeInUp 1s ease-in;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px var(--accent);
+    }
+
+    .card {
+      background: rgba(30, 30, 30, 0.85);
+      border: 2px solid var(--accent);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 1rem 0;
+      box-shadow: 0 0 15px var(--accent);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    [data-theme="light"] .card {
+      background: #ffffff;
+      color: #111111;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--accent);
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--accent);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      border: none;
+      border-radius: 50%;
+      padding: 0.6rem 0.9rem;
+      box-shadow: 0 0 15px var(--accent);
+      cursor: pointer;
+      display: none;
+      z-index: 99;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(20px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.6;
+      z-index: 10;
+      position: relative;
+    }
+
+    .animated-orbs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      background-color: var(--accent);
+      opacity: 0.15;
+      animation: floatOrb 12s infinite ease-in-out;
+    }
+
+    .orb:nth-child(1) { width: 100px; height: 100px; top: 20%; left: 10%; animation-delay: 0s; }
+    .orb:nth-child(2) { width: 150px; height: 150px; top: 50%; left: 70%; animation-delay: 3s; }
+    .orb:nth-child(3) { width: 80px; height: 80px; top: 75%; left: 30%; animation-delay: 6s; }
+    .orb:nth-child(4) { width: 120px; height: 120px; top: 35%; left: 50%; animation-delay: 9s; }
+
+    @keyframes floatOrb {
+      0% {transform: translateY(0);}
+      50% {transform: translateY(-40px);}
+      100% {transform: translateY(0);}
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px var(--accent);
+    }
+  </style>
+  <style>
+    .icon-line {
+      position: relative;
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: inline-block;
+      padding-bottom: 1.8em;
+    }
+    
+  
+    .icon-line::after {
+      content: "--------------------";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 1rem;
+      text-align: center;
+      display: block;
+      line-height: 1;
+      letter-spacing: 10px;
+      color: #888;
+    }
+  </style>
+  <style>
+    .sectiona {
+      padding: 2rem;
+    }
+  
+    .sectiona h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px var(--accent);
+    }
+  
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+  
+    .carda {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+  
+    .carda:hover {
+      transform: scale(1.03);
+    }
+  
+    .carda h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #1d4ed8;
+    }
+  
+    .carda p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-orbs">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <button class="theme-toggle" aria-label="Toggle Theme" onclick="toggleTheme()">🌗</button>
+
+  <header>
+    <h1>Hi, I'm <span id="typed"></span></h1>
+    <p class="icon-line">Web Developer | Designer | Coffee Lover ☕</p>
+  </header>
+  <section class="section">
+    <h2>About Me</h2>
+    <div class="card">
+      <img src="orod.png" alt="Profile Photo" class="profile-pic">
+      <p> I build websites and systems — from sleek frontends to powerful backends. I'm a digital craftsman who blends creativity with functionality, turning ideas into smooth, user-friendly experiences. Whether it’s a responsive website, a dynamic system, or something in between, I’m all about clean code and killer design.
+         I’m always exploring new tech stacks, optimizing performance, and bringing projects to life with a spark of innovation.
+        <br><br>
+        I'm also a student of <strong>AAiT</strong> (Addis Ababa Institute of Technology), studying <strong>Electrical and Computer engineering (2024-)</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+
+    <h2>Skills </h2> <div class="skills-container">
+        <span class="skill-tag html"><i class="fab fa-html5"></i>HTML</span>
+        <span class="skill-tag css"><i class="fab fa-css3-alt"></i>CSS</span>
+        <span class="skill-tag js"><i class="fab fa-js"></i>JavaScript</span>
+        <span class="skill-tag react"><i class="fab fa-react"></i>React Native</span>
+        <span class="skill-tag jsx"><i class="fab fa-jsx"></i>JSX</span>
+        <span class="skill-tag php"><i class="fab fa-php"></i>PHP</span>
+        <span class="skill-tag mysql"><i class="fab fa-mysql"></i>MySQL</span>
+        <span class="skill-tag python"><i class="fab fa-python"></i>Python</span>
+        <span class="skill-tag git"><i class="fab fa-git"></i>Git</span>
+        <span class="skill-tag bootstrap"><i class="fab fa-bootstrap"></i>Bootstrap</span>
+        <span class="skill-tag Arduino"><i class="fab fa-esp32"></i>Arduino</span>
+        <span class="skill-tag esp32"><i class="fab fa-esp32"></i>ESP32</span>
+      </div>
+    </div>
+  </section>
+  <section class="sectiona">
+    <h2>🚀 Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <h3>🔥 Speed Detector System</h3>
+        <p>ESP32-powered system with PHP + Python backend and real-time license plate detection. Keeps traffic smooth.</p>
+      </div>
+      <div class="card">
+        <h3>📦 AAU Food Delivery</h3>
+        <p>Food delivery system for university students. Easy ordering, fast delivery, student-friendly.</p>
+      </div>
+      <div class="card">
+        <h3>📡 Car-to-Website Live Feed</h3>
+        <p>Streaming live video from ESP32 to a PHP site with Python-based plate detection.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 AI Hand Gesture Control</h3>
+        <p>Hand gesture recognition using MediaPipe + Python to control devices or send commands.</p>
+      </div>
+      <div class="card">
+        <h3>🔒 Secure Login System</h3>
+        <p>Custom PHP + MySQL login with admin panel, session tracking and modern UI.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Portfolio Website</h3>
+        <p>Your very own personal website with cool animations, contact form and responsive layout.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Portfolio Website</h3>
+        <p>Your very own personal website with cool animations, contact form and responsive layout.</p>
+      </div>
+      <div class="card">
+        <h3>🌐 Portfolio Website</h3>
+        <p>Your very own personal website with cool animations, contact form and responsive layout.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Contact</h2>
+    <div class="card">
+      <p>Email: <a href="mailto:dorsisgirma25@gmail.com" style="color: #0088cc; text-decoration: none;">dorsisgirma25</a>
+      </p>
+      <p>
+        Connect with me on 
+        <a href="https://t.me/OROD01" target="_blank" style="color: #0088cc; text-decoration: none;">
+          @orod01
+        </a>
+        📬
+      </p>
+      
+      <!-- Add this to the <head> for Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- The Button -->
+<a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3ADorsis%20Girma%0ATEL%3BTYPE%3DCELL%3A%2B251955385937%0AEND%3AVCARD" 
+   download="DorsisGirma.vcf" 
+   class="btn">
+   <i class="fas fa-comments"></i> Let's Talk 💬
+</a>
+
+<!-- Optional CSS for the button -->
+<style>
+  .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  .btn i {
+    margin-right: 8px;
+  }
+</style>
+
+    </div>
+  </section>
+
+  <button id="scrollTopBtn" onclick="scrollToTop()">⬆️</button>
+
+  <footer>
+    &copy; 2025 CodeNerd. All Rights Reserved.
+  </footer>
+
+  <script>
+    const typed = new Typed('#typed', {
+      strings: ['DORSIS 👨‍💻', 'Frontend Dev 🚀','Backend Dev 🚀', 'UI/UX Enthusiast 🎨'],
+      typeSpeed: 80,
+      backSpeed: 40,
+      loop: true
+    });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>
